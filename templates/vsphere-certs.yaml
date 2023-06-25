@@ -1,0 +1,17 @@
+{{- range .Values.clusters }}
+---
+apiVersion: bitnami.com/v1alpha1
+kind: SealedSecret
+metadata:
+  name: {{ .name }}
+  namespace: {{ .name }}
+spec:
+  encryptedData:
+    .cacert: encrypted-vsphere-certs
+  template:
+    metadata:
+      name: {{ .name }}
+      namespace: {{ .name }}
+    type: Opaque
+{{- end }}
+

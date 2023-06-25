@@ -1,0 +1,4 @@
+apiVersion: v2
+name: cluster-creation
+description: A Helm chart for creating clusters with RHACM
+version: 0.1.0

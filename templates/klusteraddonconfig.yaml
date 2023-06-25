@@ -1,0 +1,30 @@
+{{- range .Values.clusters }}
+---
+apiVersion: agent.open-cluster-management.io/v1
+kind: KlusterletAddonConfig
+metadata:
+  name: '{{ .name }}'
+  namespace: '{{ .name }}'
+spec:
+  clusterName: '{{ .name }}'
+  clusterNamespace: '{{ .name }}'
+  clusterLabels:
+    cloud: vSphere
+    vendor: OpenShift
+  applicationManager:
+    proxyPolicy: OCPGlobalProxy
+    enabled: true
+  policyController:
+    proxyPolicy: OCPGlobalProxy
+    enabled: true
+  searchCollector:
+    proxyPolicy: OCPGlobalProxy
+    enabled: true
+  certPolicyController:
+    proxyPolicy: OCPGlobalProxy
+    enabled: true
+  iamPolicyController:
+    proxyPolicy: OCPGlobalProxy
+    enabled: true
+{{- end }}
+

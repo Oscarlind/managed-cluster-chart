@@ -1,0 +1,45 @@
+clusters:
+# Cluster 1
+  - name: cluster-1
+    baseDomain: cluster1-basedomain
+    imageSetRef: cluster1-multi-appsub
+    platform:
+      vsphere:
+        cluster: cluster1-vsphere-cluster
+        vCenter: cluster1-vcenter-url
+        datacenter: cluster1-datacenter
+        defaultDatastore: cluster1-datastore
+        network: cluster1-network
+    secrets:
+      installConfig: 
+    network:
+      apiVIP: 10.160.122.12
+      ingressVIP: 10.160.122.11
+      clusterNetwork: 10.128.0.0/14
+      HostPrefix: 23
+      machineNetwork: 10.32.52.0/25
+      serviceNetwork: 172.30.0.0/16
+
+  - name: cluster-2
+    baseDomain: cluster2-basedomain
+    imageSetRef: cluster2-multi-appsub
+    platform:
+      vsphere:
+        cluster: cluster2-vsphere-cluster
+        vCenter: cluster2-vcenter-url
+        datacenter: cluster2-datacenter
+        defaultDatastore: cluster2-datastore
+        network: cluster2-network
+    secrets:
+      installConfig:
+    network:
+      apiVIP: 10.150.122.12
+      ingressVIP: 10.150.122.11
+      clusterNetwork: 10.128.0.0/16
+      HostPrefix: 23
+      machineNetwork: 10.52.32.0/25
+      serviceNetwork: 172.50.32.0/16
+
+
+#  - name: cluster-3
+#    baseDomain: script-works

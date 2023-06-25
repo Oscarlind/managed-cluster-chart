@@ -1,0 +1,10 @@
+{{- range .Values.clusters }}
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  annotations:
+    argocd.argoproj.io/sync-wave: '60'
+  name: '{{ .name }}'
+{{- end }}
+
